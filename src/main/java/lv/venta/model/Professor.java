@@ -28,25 +28,13 @@ import lv.venta.model.enums.Degree;
 @ToString
 @Table(name = "ProfessorTable")
 @Entity
-public class Professor {
+public class Professor extends Person{
 	
 	@Setter(value = AccessLevel.NONE)
 	@Column(name = "Pid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long pid;
-	
-	@NotNull
-	@NotEmpty
-	@Pattern(regexp = "[A-Z]{1}[a-z]{2,15}([ ]{1}[A-Z]{1}[a-z]{2,15})?")
-	@Column(name = "Name")
-	private String name;
-	
-	@NotNull
-	@NotEmpty
-	@Pattern(regexp = "[A-Z]{1}[a-z]{2,15}([-]{1}[A-Z]{1}[a-z]{2,15})?")
-	@Column(name = "Surname")
-	private String surname;
 	
 	@NotNull
 	@Column(name = "Degree")
@@ -61,8 +49,7 @@ public class Professor {
 	
 	
 	public Professor(String name, String surname, Degree degree) {
-		setName(name);
-		setSurname(surname);
+		super(name, surname);
 		setDegree(degree);
 	}
 }
