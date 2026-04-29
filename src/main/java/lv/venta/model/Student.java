@@ -26,12 +26,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Student extends Person{
-
-	@Setter(value = AccessLevel.NONE)
-	@Column(name = "Sid")
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long sid;
 	
 	@OneToMany(mappedBy = "student")
 	@ToString.Exclude

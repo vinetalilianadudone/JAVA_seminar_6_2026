@@ -38,7 +38,7 @@ public class Grade {
 	private int gradeValue;
 	
 	@ManyToOne
-	@JoinColumn(name = "Sid")
+	@JoinColumn(name = "Pid")	// manto no Person
 	private Student student;
 	
 	@ManyToOne
