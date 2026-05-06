@@ -1,7 +1,5 @@
 package lv.venta.model;
 
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,23 +32,21 @@ public class Grade {
 	
 	@Min(0)
 	@Max(10)
-	@Column(name = "gradeValue")
-	private int gradeValue;
+	@Column(name = "grValue")
+	private int grvalue;
 	
 	@ManyToOne
-	@JoinColumn(name = "Pid")	// manto no Person
+	@JoinColumn(name = "Sid")
 	private Student student;
 	
 	@ManyToOne
 	@JoinColumn(name = "Cid")
 	private Course course;
 	
-	public Grade(int gradeValue, Student student, Course course) {
+	public Grade(int grvalue, Student student, Course course) {
 		setCourse(course);
-		setGradeValue(gradeValue);
-		setCourse(course);
+		setGrvalue(grvalue);
+		setStudent(student);
 	}
-	
-	
 
 }

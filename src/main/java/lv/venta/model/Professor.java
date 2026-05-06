@@ -1,6 +1,6 @@
 package lv.venta.model;
 
-//import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,15 +30,22 @@ import lv.venta.model.enums.Degree;
 @Entity
 public class Professor extends Person{
 	
+	@Setter(value = AccessLevel.NONE)
+	@Column(name = "Pid")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long pid;
+	
+		
 	@NotNull
 	@Column(name = "Degree")
 	@Enumerated(EnumType.STRING)
 	private Degree degree;
 
-	//mapedBy ir ar otras klases mainīgo jāsaasaita
+	//mapedBy ir ar otras klases mainigo jasaasaita
 	@OneToOne(mappedBy = "professor")
 	@ToString.Exclude
-	//@JsonIgnore, tad ja izmantojam citu priekšgalsistēmu
+	//@JsonIgnore, tad ja izmantojam citu priekgalsistemu, piemeram, React, Vue, Angular utt
 	private Course course;
 	
 	

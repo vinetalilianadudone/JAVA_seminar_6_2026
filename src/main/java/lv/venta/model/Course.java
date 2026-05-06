@@ -56,14 +56,12 @@ public class Course {
 	
 	@OneToMany(mappedBy = "course")
 	@ToString.Exclude
-	private Collection<Grade> grades = new ArrayList<>();
-	
+	private Collection<Grade> grades = new ArrayList<Grade>();
 	
 	public Course(String title, int creditPoints, Professor professor) {
 		setTitle(title);
 		setCreditPoints(creditPoints);
 		setProfessor(professor);
 	}
-	
 
 }
