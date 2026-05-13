@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import lv.venta.model.Grade;
 
@@ -18,7 +19,7 @@ public interface IGradeRepo extends CrudRepository<Grade, Long>{
 					+ "FROM grade_table as t1 "
 					+ "JOIN course_table as t2 "
 					+ "ON t1.cid=t2.cid "
-					+ "WHERE t2.title=:title;")
-	float calculateAvgByCourseTitle(String title);
+					+ "WHERE t2.title=:title")
+	float calculateAVGGradeForCourse(@Param("title") String title);
 
 }

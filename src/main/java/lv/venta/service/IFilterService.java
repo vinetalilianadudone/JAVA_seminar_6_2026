@@ -25,6 +25,8 @@ public interface IFilterService {
 	
 	//iegut visus studentus, kuriem ir kada nesekmiga atzime
 	public abstract ArrayList<Student> filterStudentsWithFailedGrades() throws Exception;
+
+	public abstract ArrayList<Professor> filterProfessorsByDegree(Degree inputdegree);
 	
 	
 }

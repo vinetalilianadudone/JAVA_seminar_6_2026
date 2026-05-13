@@ -80,12 +80,15 @@ public class FilterServiceImpl implements IFilterService {
         if (!courseRepo.existsByTitle(title)) {
             throw new Exception("Kurss ar nosaukumu " + title + " neeksistē");
         }
-        float result = gradeRepo.calculateAvgByCourseTitle(title);
+        
+        float result = gradeRepo.calculateAVGGradeForCourse(title);
+        
         if (result == 0) {
             throw new Exception("Kursā " + title + " nav nevienas atzīmes, lai aprēķinātu vidējo");
         }
         return result;
     }
+
 
     @Override
     public ArrayList<Student> filterStudentsWithFailedGrades() throws Exception {
@@ -95,10 +98,16 @@ public class FilterServiceImpl implements IFilterService {
     	if (gradeRepo.count() == 0) {
     		throw new Exception("Atzimju tabula ir tukša");
     	}
-        ArrayList<Student> result = studentRepo.findByGradesValueLessThan(4);
+    	ArrayList<Student> result = studentRepo.findByGradesGrvalueLessThan(4);
         if (result.isEmpty()) {
             throw new Exception("Nav neviena studenta ar nesekmīgām atzīmēm");
         }
         return result;
     }
+
+	@Override
+	public ArrayList<Professor> filterProfessorsByDegree(Degree inputdegree) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
