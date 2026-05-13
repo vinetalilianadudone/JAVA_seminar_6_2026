@@ -41,7 +41,7 @@ public class FilterController {
 	public String getCourseByProfessorId(@PathVariable(name = "id") long id, Model model) {
 		try
 		{
-			ArrayList<Course> coursesFromDB = filterService.filterCoursesByPorfessorId(id);
+			ArrayList<Course> coursesFromDB = filterService.filterCoursesByPorfessorsId(id);
 			model.addAttribute("package", coursesFromDB);
 			return "show-multiple-courses-page";
 		}

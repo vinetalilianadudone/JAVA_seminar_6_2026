@@ -14,7 +14,7 @@ public interface IFilterService {
 	public abstract ArrayList<Professor> filterProfessorByDegree(Degree degree) throws Exception; 
 	
 	//iegut kursus, kurus pasniedz profesors ar konkreto id
-	public abstract ArrayList<Course> filterCoursesByPorfessorId(long id) throws Exception;
+	public abstract ArrayList<Course> filterCoursesByPorfessorsId(long id) throws Exception;
 	
 	//iegut visas atzimes, ja ir zinams stuenta vards un uzvards
 	public abstract ArrayList<Grade> filterGradesByStudentNameAndSurname(String name, String surname)
@@ -26,7 +26,9 @@ public interface IFilterService {
 	//iegut visus studentus, kuriem ir kada nesekmiga atzime
 	public abstract ArrayList<Student> filterStudentsWithFailedGrades() throws Exception;
 
-	public abstract ArrayList<Professor> filterProfessorsByDegree(Degree inputdegree);
+	public abstract ArrayList<Professor> filterProfessorsByDegree(Degree inputdegree) throws Exception;
+
+	ArrayList<Course> filterCoursesByProfessorId(long id) throws Exception;
 	
 	
 }
